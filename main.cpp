@@ -3,6 +3,7 @@
 //
 #include <iostream>
 #include "Set.h"
+#include <stdexcept>
 
 using namespace std;
 
@@ -15,6 +16,20 @@ int main(void)
     cout << myQueue.insert(2);
     cout<<myQueue.insert(3);
     cout<<myQueue.insert(4);
+    cout<<myQueue.remove(8);
+    cout<<myQueue.remove(1);
+    cout<<myQueue.remove(2);
+    cout<<myQueue.remove(3);
+    cout<<myQueue.remove(4);;
+    try
+    {
+        cout<<myQueue.remove(1);
+    }
+    catch (...)
+    {
+        cout <<"Wrong!!!";
+    }
+
     tre = myQueue;
     Set<int> red= tre;
     cout  <<"\nfin."<<endl;

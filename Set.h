@@ -22,7 +22,7 @@ public:
     Set(const Set & orgin);
     Set & operator=(const Set & orgin);
     virtual bool insert(T element);
-    virtual bool remove(T element)throw(...);
+    virtual bool remove(T element);//throw(...) are non standard
     virtual int size() const;
     //inherited
     void test(T);
@@ -135,7 +135,24 @@ int Set<T>::size() const
 {
     return this->nrOfElements;
 }
-
-bool Set::remove(T element) {
+template <class T>
+bool Set<T>::remove(T element)
+{
+    if(this->nrOfElements < 1)
+    {
+        throw "ERROR: empty!";
+    }
+    else
+    {
+        for (int i = 0; i < this->nrOfElements ; ++i)
+        {
+            if(this->arrayPtr[i]==element)
+            {
+                this->arrayPtr[i]=this->arrayPtr[this->nrOfElements-1];
+                this->nrOfElements--;
+                return true;
+            }
+        }
+    }
     return false;
 }
