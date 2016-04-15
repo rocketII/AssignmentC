@@ -9,9 +9,12 @@ template <class T>
 class IPriorityQueue
 {
 public:
+    IPriorityQueue();
+    ~IPriorityQueue();
+
     virtual void enqueue(const T& element) = 0;
-    virtual T dequeue()throw(...) = 0;
-    virtual T front() const throw(...) = 0;
+    //virtual T dequeue()throw(...) = 0;
+    //virtual T front() const throw(...) = 0;
     virtual bool isEmpty() const = 0;
 };
 

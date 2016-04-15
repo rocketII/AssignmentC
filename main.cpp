@@ -9,5 +9,7 @@ using namespace std;
 int main(void)
 {
     PriorityQueue<int> myQueue;
+    myQueue.test(3);
+    cout  <<"we are alive."<<endl;
     return 0;
 }
