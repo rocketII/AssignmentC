@@ -136,7 +136,7 @@ int Set<T>::size() const
     return this->nrOfElements;
 }
 template <class T>
-bool Set<T>::remove(T element)
+bool Set<T>::remove(T element)throw(...)//throw(...) here are not c++ std therefore GNU compiler won't accept Microsoft concepts. :'(
 {
     if(this->nrOfElements < 1)
     {

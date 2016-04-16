@@ -3,19 +3,23 @@
 //
 #include <iostream>
 #include "Set.h"
-//#include <stdexcept>
+
 
 using namespace std;
 
 int main(void)
 {
+    //Test Constructor
     Set<int> mySet, tre;
+    //test that template work
     mySet.test(3);
+    //test insert with expansion, duplicate elements.
     cout << mySet.insert(1);
     cout << mySet.insert(1);
     cout << mySet.insert(2);
     cout << mySet.insert(3);
     cout << mySet.insert(4);
+    //test remove elements untill exception occurs, false positve elements
     cout << mySet.remove(8);
     cout << mySet.remove(1);
     cout << mySet.remove(2);
@@ -30,17 +34,22 @@ int main(void)
         cout <<"\nWrong!!!";
     }
 
+    //testing operato=(..)
     tre = mySet;
+    //test template for second datatype
     Set<int> red= tre;
 
     //test string
     Set<string> mySetI, four;
-    mySetI.test("noob");
+    //performing the exact same thing as above but with string.
+    mySetI.test("...\n");
     cout << mySetI.insert("lol");
     cout << mySetI.insert("lol");
     cout << mySetI.insert("katt");
     cout << mySetI.insert("Hund");
     cout << mySetI.insert("RÖD");
+    //test get function
+    cout << mySetI.size();
     cout << mySetI.remove("lol");
     cout << mySetI.remove("lol");
     cout << mySetI.remove("Canada");
@@ -57,6 +66,7 @@ int main(void)
     cout << mySetI.insert("RÖD");
     four = mySetI;
     Set<string> bed= four;
+    //test ends here.
     cout  <<"\nfin."<<endl;
     cout  <<"\n"<<endl;
     return 0;
