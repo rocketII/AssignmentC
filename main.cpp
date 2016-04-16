@@ -3,35 +3,61 @@
 //
 #include <iostream>
 #include "Set.h"
-#include <stdexcept>
+//#include <stdexcept>
 
 using namespace std;
 
 int main(void)
 {
-    Set<int> myQueue, tre;
-    myQueue.test(3);
-    cout<<myQueue.insert(1);
-    cout<<myQueue.insert(1);
-    cout << myQueue.insert(2);
-    cout<<myQueue.insert(3);
-    cout<<myQueue.insert(4);
-    cout<<myQueue.remove(8);
-    cout<<myQueue.remove(1);
-    cout<<myQueue.remove(2);
-    cout<<myQueue.remove(3);
-    cout<<myQueue.remove(4);;
+    Set<int> mySet, tre;
+    mySet.test(3);
+    cout << mySet.insert(1);
+    cout << mySet.insert(1);
+    cout << mySet.insert(2);
+    cout << mySet.insert(3);
+    cout << mySet.insert(4);
+    cout << mySet.remove(8);
+    cout << mySet.remove(1);
+    cout << mySet.remove(2);
+    cout << mySet.remove(3);
+    cout << mySet.remove(4);
     try
     {
-        cout<<myQueue.remove(1);
+        cout << mySet.remove(1);
     }
     catch (...)
     {
-        cout <<"Wrong!!!";
+        cout <<"\nWrong!!!";
     }
 
-    tre = myQueue;
+    tre = mySet;
     Set<int> red= tre;
+
+    //test string
+    Set<string> mySetI, four;
+    mySetI.test("noob");
+    cout << mySetI.insert("lol");
+    cout << mySetI.insert("lol");
+    cout << mySetI.insert("katt");
+    cout << mySetI.insert("Hund");
+    cout << mySetI.insert("RÖD");
+    cout << mySetI.remove("lol");
+    cout << mySetI.remove("lol");
+    cout << mySetI.remove("Canada");
+    cout << mySetI.remove("katt");
+    cout << mySetI.remove("Hund");
+    try
+    {
+        cout << mySetI.remove("RÖD");
+    }
+    catch (...)
+    {
+        cout <<"\nWrong!!!";
+    }
+    cout << mySetI.insert("RÖD");
+    four = mySetI;
+    Set<string> bed= four;
     cout  <<"\nfin."<<endl;
+    cout  <<"\n"<<endl;
     return 0;
 }
