@@ -14,8 +14,8 @@ class Set : public ISet<T>
 {
 private:
     T* arrayPtr;
-    int nrOfElements=0;
-    int capacity=2;
+    int nrOfElements;
+    int capacity;
 public:
     Set();
     ~Set();
@@ -25,31 +25,29 @@ public:
     virtual bool remove(T element);//throw(...) are non standard
     virtual int size() const;
     //inherited
-    void test(T);
+    void test(T)const;
 
 };
 
+//Du borde inte ha implementationer av ISet<T>ISet
+//template <class T>
+//ISet<T>::ISet(){}
 
-template <class T>
-ISet<T>::ISet()
-{
-    ;
-}
-template <class T>
-ISet<T>::~ISet()
-{
-    ;
-}
+//Du borde inte ha implementationer av ISet<T>ISet
+//template <class T>
+//ISet<T>::~ISet(){}
 template <class T>
 Set<T>::Set()
 {
+
     this->nrOfElements=0;
+    this->capacity=2;
     this->arrayPtr = new T[2];
 }
 template <class T>
 Set<T>::~Set()
 {
-    ISet<T>::~ISet();
+
     delete[]  this->arrayPtr;
 }
 
@@ -67,23 +65,26 @@ Set<T>::Set(const Set<T>& orgin)
 template <class T>
 Set<T>& Set<T>::operator=(const Set<T>& orgin)
 {
-    this->nrOfElements = orgin.nrOfElements;
-    this->capacity=orgin.capacity;
-    delete[] this->arrayPtr;
-    this->arrayPtr=new T[this->capacity];
-    for (int i = 0; i < this->nrOfElements ; ++i)
+    if(this != &orgin)
     {
-        this->arrayPtr[i] = orgin.arrayPtr[i];
+        this->nrOfElements = orgin.nrOfElements;
+        this->capacity = orgin.capacity;
+        delete[] this->arrayPtr;
+        this->arrayPtr = new T[this->capacity];
+        for (int i = 0; i < this->nrOfElements; ++i) {
+            this->arrayPtr[i] = orgin.arrayPtr[i];
+        }
     }
     return *this;
 }
 //dbg only
 template <class T>
-void Set<T>::test(T fgr)
+void Set<T>::test(T fgr)const
 {
-    cout << "cool"<< fgr;
+    //read with break points
+    T mao =fgr;
 }
-#endif //ASSIGNMENTC_PRIORITYQUEUE_H
+
 template <class T>
 bool Set<T>::insert(T element)
 {
@@ -136,11 +137,11 @@ int Set<T>::size() const
     return this->nrOfElements;
 }
 template <class T>
-bool Set<T>::remove(T element)throw(...)//throw(...) here are not c++ std therefore GNU compiler won't accept Microsoft concepts. :'(
+bool Set<T>::remove(T element)//throw(...)//throw(...) here are not c++ std therefore GNU compiler won't accept Microsoft concepts. :'(
 {
     if(this->nrOfElements < 1)
     {
-        throw "ERROR: empty!";
+        throw "ERROR: empty!\n";
     }
     else
     {
@@ -156,3 +157,4 @@ bool Set<T>::remove(T element)throw(...)//throw(...) here are not c++ std theref
     }
     return false;
 }
+#endif //ASSIGNMENTC_PRIORITYQUEUE_H

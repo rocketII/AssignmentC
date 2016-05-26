@@ -12,7 +12,7 @@ int main(void)
     //Test Constructor
     Set<int> mySet, tre;
     //test that template work
-    mySet.test(3);
+    //mySet.test(3);
     //test insert with expansion, duplicate elements.
     cout << mySet.insert(1);
     cout << mySet.insert(1);
@@ -31,7 +31,7 @@ int main(void)
     }
     catch (...)
     {
-        cout <<"\nWrong!!!";
+        cout <<"\nWrong!!!\n";
     }
 
     //testing operato=(..)
@@ -49,7 +49,7 @@ int main(void)
     cout << mySetI.insert("Hund");
     cout << mySetI.insert("RÖD");
     //test get function
-    cout << mySetI.size();
+    cout <<"\nSize: "<< mySetI.size()<<"\n";
     cout << mySetI.remove("lol");
     cout << mySetI.remove("lol");
     cout << mySetI.remove("Canada");
@@ -68,6 +68,6 @@ int main(void)
     Set<string> bed= four;
     //test ends here.
     cout  <<"\nfin."<<endl;
-    cout  <<"\n"<<endl;
+    cout  <<"\a"<<endl;
     return 0;
 }

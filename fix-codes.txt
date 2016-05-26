@@ -1,0 +1,24 @@
+fixed?  code      Description
+-----------------------------
+1        0x1        Du borde inte ha implementationer av ISet<T>ISet
+
+1       0x2        En include guard ska täcka hela filen. Din tar slut på mitten
+
+
+1       0x3        Alla funktioner som kan vara konstanta (const) ska vara det: Ej korrekt, test är inte const
+
+1       0x4        Ingen in- eller utmatning sker i klasserna: Ej korrekt test innehåller utmatning,
+                   fast funktionen används inte
+
+1       0x5        Övrigt: ingen körbar kod ska finnas i klassdefinitionen. T.ex. är inte nrOfElements = 0 tillåtet
+
+        Krav på Set
+
+
+1       0x6        Konstruktorn är korrekt implementerad: Ej korrekt, initierar aldrig capacity
+
+1       0x7        Tilldelningsoperatorn är korrekt implementerad: Ej korrekt, ingen self-assignment check finns
+
+1        0x8        Destruktorn är korrekt implementerad: Ej korrekt, kalla aldrig explicit på en destruktor.
+                   Alltså är inte ISet<T>::~ISet(); tillåtet
+
