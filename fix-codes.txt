@@ -1,5 +1,6 @@
 fixed?  code      Description
 -----------------------------
+
 1        0x1        Du borde inte ha implementationer av ISet<T>ISet
 
 1       0x2        En include guard ska täcka hela filen. Din tar slut på mitten
