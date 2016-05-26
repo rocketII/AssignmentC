@@ -16,10 +16,10 @@ public:
     virtual bool remove(T element) = 0;//throw(...)
     virtual int size() const = 0;
 };
-
+/*
 template <class T>
 ISet<T>::ISet(){}
 template <class T>
 ISet<T>::~ISet(){}
-
+*/
 #endif //ASSIGNMENTC_IPRIORITYQUEUE_H
