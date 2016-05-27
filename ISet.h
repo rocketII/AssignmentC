@@ -9,8 +9,7 @@ template <class T>
 class ISet
 {
 public:
-    ISet();
-    ~ISet();
+    
 
     virtual bool insert(T element) = 0;
     virtual bool remove(T element) = 0;//throw(...)
