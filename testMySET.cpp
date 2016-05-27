@@ -1,8 +1,8 @@
 //
 // Created by bps on 2016-03-31.
 //
-#include <iostream>
 #include "Set.h"
+#include <iostream>
 
 
 using namespace std;

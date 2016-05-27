@@ -6,7 +6,6 @@
 #define ASSIGNMENTC_PRIORITYQUEUE_H
 #include "ISet.h"
 #include<stdexcept>
-#include <iostream>
 #include <typeinfo>
 using namespace std;
 template <class T>
@@ -21,10 +20,12 @@ public:
     ~Set();
     Set(const Set & orgin);
     Set & operator=(const Set & orgin);
+    //inherited
     virtual bool insert(T element);
     virtual bool remove(T element);//throw(...) are non standard
     virtual int size() const;
-    //inherited
+    //inherited end
+    //DBG only: checks that stuff works
     void test(T)const;
 
 };
@@ -32,6 +33,7 @@ public:
 //Du borde inte ha implementationer av ISet<T>ISet
 //template <class T>
 //ISet<T>::ISet(){}
+
 
 //Du borde inte ha implementationer av ISet<T>ISet
 //template <class T>
@@ -83,13 +85,16 @@ void Set<T>::test(T fgr)const
 {
     //read with break points
     T mao =fgr;
+    mao;
 }
 
 template <class T>
 bool Set<T>::insert(T element)
 {
+
     if(this->nrOfElements < this->capacity)
     {
+        //check existence of element
         for (int i = 0; i < this->nrOfElements ; ++i)
         {
             if(this->arrayPtr[i] == element)
@@ -97,12 +102,15 @@ bool Set<T>::insert(T element)
                 return false;
             }
         }
+        //add element
         this->arrayPtr[this->nrOfElements] = element;
         this->nrOfElements++;
         return true;
     }
     else
     {
+        //expand, every for loop are linear time complexity.
+        //när du expanderar behöver du bara skapa en ny array, kopiera värden, avallokera den gamla arrayen, och sedan ytkopiera pekaren
         T* tmp = new T[this->capacity];
         for (int i = 0; i < this->nrOfElements ; ++i)
         {
@@ -131,6 +139,9 @@ bool Set<T>::insert(T element)
     }
 
 }
+
+
+
 template <class T>
 int Set<T>::size() const
 {
